@@ -47,8 +47,6 @@ class MorseCodeConverter:
         self.translated_textbox.delete(1.0, END)
         words_to_translate = self.original_textbox.get('1.0', 'end')[:-1]
         words_to_translate = words_to_translate.lower()
-        print(len(words_to_translate))
-        print([i for i in words_to_translate])
         with open("code.json", "rb") as file:
             data = json.load(file)['text']
             def exception_manager(a):
@@ -57,7 +55,6 @@ class MorseCodeConverter:
                 except KeyError:
                     pass
             arr = [exception_manager(i) for i in words_to_translate]
-        # print(arr)
         self.translated_textbox.insert(1.0, "".join(arr))
 
 
